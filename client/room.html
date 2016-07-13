@@ -1,0 +1,20 @@
+<div>
+    <div class="span3">
+        <ul class="nav nav-list well">
+            <li class="nav-header">Waiting Room</li>
+            <li ng-repeat="user in roster">
+                <button type="button" class="btn btn-default" ng-click="match(user.id)" ng-disabled="isDisavailableMatchButton(user.id)">Match</button>
+                {{user.name}}
+            </li>
+        </ul>
+    </div>
+    <div class="span9">
+        <h2>Online</h2>
+        <div class="row controls">
+                <div class="input-append span9">
+                    <input type="text" class="span5 input-inline-level" ng-model="name" placeholder="Your Name">
+                    <button ng-click="send()" class="span2 btn btn-primary" ng-disabled="!name">Enter Room</button>
+                </div>
+        </div>
+    </div>
+</div>

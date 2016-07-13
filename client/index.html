@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en" ng-app="sophya">
+<head>
+    <title>Sophya Online</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-responsive.min.css">
+    <link rel="stylesheet" href="/css/sophya_game.css" />
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/library/jquery.min.js"></script>
+    <script src="/js/library/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+    <script src="/js/services.js"></script>
+    <script src="/js/app.js"></script>
+    <script src="/js/controller.js"></script>
+    <script src="/js/sophya_client.js"></script>
+
+
+    <style>
+        body {
+            padding-top: 60px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="navbar navbar-fixed-top navbar-inverse">
+            <div class="navbar-inner">
+                <div class="pull-left">
+                    <a href="#" class="brand">Sophya</a>
+                    <a href="#/tutorial" class="brand">Tutorial</a>
+                </div>
+            </div>
+        </div>
+        <div class="page-header">
+            <h1>Sophya</h1>
+        </div>
+        <div class="row" ng-view>
+        </div>
+    </div>
+</body>
+</html>

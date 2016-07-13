@@ -1,0 +1,52 @@
+﻿.gameboard {
+    border: solid 3px;
+    border-collapse: collapse;
+    border-color: white;
+    text-align: center;
+    font-size: large;
+}
+
+td {
+    border: solid 3px;
+    border-color: white;
+    width: 50px;
+    height: 50px;
+}
+
+.dice {
+    width: 30px;
+    height: 30px;
+}
+
+.firstPlayer {
+    color: red;
+}
+
+.secondPlayer {
+   color: blue;
+}
+
+div.movePlayer {
+    border: solid green;
+}
+
+/* Status (backgroud)*/
+td.Departure {
+   background-color: khaki;
+}
+
+td.Destination {
+    background-color: plum;
+}
+td.Snatcher {
+    background-color: darkviolet;
+}
+td.Victim {
+    background-color: mediumorchid;
+}
+td.VictimCandidate{
+    background-color: palevioletred;
+}
+td.Normal{
+    background-color: gray;
+}

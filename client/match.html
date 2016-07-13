@@ -1,0 +1,18 @@
+<div>
+    <div class="center-block">
+        <div ng-class="getPlayerClass(game.condition.opponentPlayer())">{{game.condition.opponentPlayer()}}</div>
+        <table class="gameboard">
+            <tr ng-repeat="i in [1,2,3,4,5,6]">
+                <td ng-repeat="j in [1,2,3,4,5,6]" ng-class="getCellClass(i,j)" ng-click="move(i,j)">
+                    <span ng-show="existsDice(i,j)">
+                    <img class="dice" ng-src="./img/dice/{{getMovePlayer(i,j)}}-{{game.condition.board.getCell(i,j).die.number}}.png" alt="{{getMovePlayer(i,j)}},{{game.condition.board.getCell(i,j).die.number}}"></img>
+
+<!--{{game.condition.board.getCell(i,j).die.number}}-->
+                    </span>
+                </td>
+            </tr>
+        </table>
+        <div ng-class="getPlayerClass(game.condition.viewPlayer)">{{game.condition.viewPlayer}}</div>
+        <div id="move_power">移動力 : {{game.condition.movePower}}</div>
+    </div>
+</div>
