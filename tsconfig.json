@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es6",
+        "outFile": "bin/",
+        "noImplicitAny": true,
+        "sourceMap": false
+    },
+    "filesGlob": [
+        "src/**/*ts",
+        "typings/index.d.ts"
+    ],
+    "files": [
+        "src/server/index.ts"
+    ],
+    "atom": {
+        "rewriteTsconfig": true
+    }
+}
