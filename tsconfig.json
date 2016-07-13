@@ -11,7 +11,17 @@
         "typings/index.d.ts"
     ],
     "files": [
-        "src/server/index.ts"
+        "src/__types.d.ts",
+        "src/server/index.ts",
+        "src/server/server.ts",
+        "src/server/sophya/Board.ts",
+        "src/server/sophya/Cell.ts",
+        "src/server/sophya/Const.ts",
+        "src/server/sophya/Die.ts",
+        "src/server/sophya/GameCondition.ts",
+        "src/server/sophya/MoveLog.ts",
+        "src/server/sophya/Player.ts",
+        "typings/index.d.ts"
     ],
     "atom": {
         "rewriteTsconfig": true

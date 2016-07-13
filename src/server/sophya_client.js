@@ -28,7 +28,7 @@ var GameCondition = function () {
 
 GameCondition.prototype.reset = function (){
     this.status = "Wait_Starting_Game";
-    this.moveLog = null;
+    this.moveLog = null;    
     this.firstPlayer = "player1";
     this.secondPlayer = "player2";
     this.viewPlayer = "player0";
@@ -41,7 +41,7 @@ GameCondition.prototype.reset = function (){
 }
 
 GameCondition.prototype.initialize = function (playerName, opponentPlayerName, isFirstMover) {
-    // Set Game Condition
+    // Set Game Condition    
     this.firstPlayer = (isFirstMover ? playerName : opponentPlayerName);
     this.secondPlayer = (!isFirstMover ? playerName : opponentPlayerName);
     this.movePlayer = this.firstPlayer;
@@ -49,7 +49,7 @@ GameCondition.prototype.initialize = function (playerName, opponentPlayerName, i
     this.moveLog = new MoveLog;
     this.moveLog.player = this.viewPlayer;
     this.movePower = MAX_MOVE_POWER;
-
+    
     this.initializeBoard();
     this.status = "Mover_Select";
 
@@ -64,7 +64,7 @@ GameCondition.prototype.initializeBoard = function () {
             cells[i][j] = new Cell(i, j, null);
         }
     }
-
+    
     // Set Dice
     var rowIndex = [];
     rowIndex[this.viewPlayer] = BOARD_SIDE - 1;
@@ -84,7 +84,7 @@ GameCondition.prototype.nextPlayerMove = function () {
     //  switch move player
     this.movePlayer = (this.movePlayer === this.firstPlayer ? this.secondPlayer : this.firstPlayer);
     this.status     = (this.movePlayer === this.viewPlayer  ? "Mover_Select" : "Wait_Opponent_Move");
-
+    
     // reset move power
     this.movePower = MAX_MOVE_POWER;
 };
@@ -107,9 +107,9 @@ GameCondition.prototype.decreaseMovePower = function (number) {
 
 GameCondition.prototype.moveDieFromTo = function (fromCell, toCell) {
     this.moveLog.fromCell = fromCell;
-    this.moveLog.toCell = toCell;
-
-    this.decreaseMovePower(fromCell.die.number);
+    this.moveLog.toCell = toCell;    
+    
+    this.decreaseMovePower(fromCell.die.number);    
     this.board.swapDice(fromCell, toCell);
 }
 
@@ -161,7 +161,7 @@ GameCondition.prototype.changeCellStatus = function (row, column) {
                 cell.die.number <= this.movePower) {
                 var destinationCells = this.board.listupDestinationCells(row, column);
                 if (destinationCells === null || destinationCells.length === 0) return;
-
+                
                 cell.setStatus("Departure");
                 for (var i = 0; i < destinationCells.length; i++) {
                     var destinationCell = destinationCells[i];
@@ -191,7 +191,7 @@ GameCondition.prototype.changeCellStatus = function (row, column) {
                 this.board.forEachCell(function (_cell) {
                     _cell.setStatus("");
                 });
-
+                
                 // 移動終了処理
                 var victimCandidates = this.board.listupSnatchVictim(cell);
                 if (victimCandidates !== null && victimCandidates.length > 0) {
@@ -228,7 +228,7 @@ GameCondition.prototype.changeCellStatus = function (row, column) {
                 snatcher.die.increment();
                 this.victim.die.decrement();
                 snatcher.setStatus("");
-
+                
                 // 強奪終了処理
                 this.board.forEachCell(function (_cell) {
                     if (_cell.status === 'Snatcher') {
@@ -237,7 +237,7 @@ GameCondition.prototype.changeCellStatus = function (row, column) {
                 });
                 this.victim.setStatus("");
                 this.victimCandidates.splice(this.victimCandidates.indexOf(this.victim), 1);
-
+                
                 // 次状態への遷移
                 if (this.victimCandidates.length > 0) {
                     for (var i = 0; i < this.victimCandidates.length; i++) {
@@ -245,7 +245,7 @@ GameCondition.prototype.changeCellStatus = function (row, column) {
                     }
                     this.status = "Select_Victim";
                 } else {
-                    this.nextMove();
+                    this.nextMove();                    
                 }
             }
             break;
