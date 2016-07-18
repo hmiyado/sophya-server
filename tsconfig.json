@@ -2,7 +2,7 @@
     "compilerOptions": {
         "module": "commonjs",
         "target": "es6",
-        "outFile": "bin/",
+        "outDir": "bin/",
         "noImplicitAny": true,
         "sourceMap": false
     },
@@ -14,13 +14,16 @@
         "src/__types.d.ts",
         "src/server/index.ts",
         "src/server/server.ts",
-        "src/server/sophya/Board.ts",
-        "src/server/sophya/Cell.ts",
-        "src/server/sophya/Const.ts",
-        "src/server/sophya/Die.ts",
-        "src/server/sophya/GameCondition.ts",
-        "src/server/sophya/MoveLog.ts",
-        "src/server/sophya/Player.ts",
+        "src/sophya/Board.ts",
+        "src/sophya/Cell.ts",
+        "src/sophya/Const.ts",
+        "src/sophya/Die.ts",
+        "src/sophya/GameCondition.ts",
+        "src/sophya/GameState.ts",
+        "src/sophya/GlobalGameState.ts",
+        "src/sophya/MoveLog.ts",
+        "src/sophya/Player.ts",
+        "src/sophya/StateManager.ts",
         "typings/index.d.ts"
     ],
     "atom": {

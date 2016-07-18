@@ -4,25 +4,9 @@ import {Die} from './Die';
 export class Cells extends   Array<Array<Cell>>{
 }
 
-export enum CellStatus {
-    Departure,
-    Destination,
-    Victim,
-    VictimCandidate,
-    Snatcher,
-    Normal
-}
-
 export class Cell {
-    public row: number;
-    public column: number;
-    public status: CellStatus;
-    public die: Die;
 
-    constructor(row: number, column: number, die: Die) {
-        this.row = row;
-        this.column = column;
-        this.die = die;
+    constructor(public row: number,public column: number,public die?: Die) {
     }
 
     public hasDie() {
@@ -50,6 +34,9 @@ export class Cell {
     }
 
     public isAdjacentToOpponentOf(cell: Cell): boolean {
+      if(!cell.hasDie() || !this.hasDie()){
+        return false;
+      }
       return this.isAdjacentTo(cell) && cell.die.player !== this.die.player;
     }
 
@@ -57,26 +44,25 @@ export class Cell {
       return this.isAdjacentToOpponentOf(cell1) && this.isAdjacentToOpponentOf(cell2);
     }
 
-    public setStatus(newStatus: CellStatus) {
-      switch (newStatus) {
-          case CellStatus.Departure:
-              this.status = newStatus;
-              break;
-          case CellStatus.Destination:
-              this.status = newStatus;
-              break;
-          case CellStatus.Victim:
-              this.status = newStatus;
-              break;
-          case CellStatus.VictimCandidate:
-              this.status = newStatus;
-              break;
-          case CellStatus.Snatcher:
-              this.status = newStatus;
-              break;
-          default:
-              this.status = CellStatus.Normal;
-      }
-
-    }
+    // public setStatus(newStatus: CellStatus) {
+    //   switch (newStatus) {
+    //       case CellStatus.Departure:
+    //           this.status = newStatus;
+    //           break;
+    //       case CellStatus.Destination:
+    //           this.status = newStatus;
+    //           break;
+    //       case CellStatus.Victim:
+    //           this.status = newStatus;
+    //           break;
+    //       case CellStatus.VictimCandidate:
+    //           this.status = newStatus;
+    //           break;
+    //       case CellStatus.Snatcher:
+    //           this.status = newStatus;
+    //           break;
+    //       default:
+    //           this.status = CellStatus.Normal;
+    //   }
+    // }
 }

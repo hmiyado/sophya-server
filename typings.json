@@ -4,7 +4,11 @@
   "globalDependencies": {
     "async": "registry:dt/async#1.4.2+20160602152629",
     "express": "registry:dt/express#4.0.0+20160708185218",
+    "express-serve-static-core": "registry:dt/express-serve-static-core#4.0.0+20160715232503",
+    "mime": "registry:dt/mime#0.0.0+20160316155526",
     "node": "registry:dt/node#6.0.0+20160709114037",
-    "socket.io": "registry:dt/socket.io#1.4.4+20160317120654"
+    "serve-static": "registry:dt/serve-static#0.0.0+20160606155157",
+    "socket.io": "registry:dt/socket.io#1.4.4+20160317120654",
+    "vue": "registry:dt/vue#1.0.21+20160423143248"
   }
 }

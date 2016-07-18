@@ -6,7 +6,8 @@
   "repository": "",
   "author": "",
   "scripts": {
-    "typings": "node_modules/.bin/typings"
+    "typings": "node_modules/.bin/typings",
+    "start": "node ./bin/server/server.js"
   },
   "dependencies": {
     "async": "^2.0.0",
